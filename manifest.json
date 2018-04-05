@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "Numbered Tabs",
+  "name": "JT Numbered Tabs",
   "description": "See order of your open tabs to navigate easily",
   "version": "0.1",
 
@@ -14,13 +14,5 @@
   "background": {
     "persistent": false,
     "scripts": ["background.js"]
-  },
-  "commands" : {
-    "toggle_title" : {
-      "suggested_key" : {
-        "default": "Alt+T"
-      },
-      "description": "Triggers title change"
-    }
   }
 }
