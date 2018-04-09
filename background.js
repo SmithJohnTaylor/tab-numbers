@@ -1,13 +1,13 @@
 var separator = " "
 var total = 0
-var enabled = true
+// var enabled = true
 
 function indexTitle(index, title, max) {
 
   var start = title.indexOf(separator) > -1 ? (title.indexOf(separator) + separator.length) : -1
   var originalTitle = title.substring(start)
 
-  if (enabled == false) { return originalTitle }
+  // if (enabled == false) { return originalTitle }
 
   if (index > 7 && index == max - 1) { return "9".concat(separator, title) }
   else if (index > 7) { return "...".concat(separator, title) }
@@ -33,15 +33,19 @@ function tabs() {
 }
 
 chrome.commands.onCommand.addListener(function (command) {
-  enabled = true
+  // enabled = true
   tabs()
 })
+
 chrome.tabs.onActivated.addListener(function (tab) {
+  tabs()
+})
+/* chrome.tabs.onActivated.addListener(function (tab) {
   if (enabled) {
-    //enabled = false
+    enabled = false
     tabs()
   }
-})
+}) */
 chrome.runtime.onMessage.addListener(function (message, sender) {
   chrome.tabs.executeScript(message.id, { code: "document.title=".concat('"', indexTitle(message.index, message.title, total), '"') })
 })
