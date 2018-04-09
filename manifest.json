@@ -1,10 +1,8 @@
 {
   "manifest_version": 2,
-
   "name": "JT Numbered Tabs",
-  "description": "See order of your open tabs to navigate easily",
+  "description": "Tab numbering for easy navigation",
   "version": "0.1",
-
   "permissions": [
     "file://*/*",
     "http://*/*",
@@ -13,6 +11,16 @@
   ],
   "background": {
     "persistent": false,
-    "scripts": ["background.js"]
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "commands": {
+    "toggle_title": {
+      "suggested_key": {
+        "default": "Alt+T"
+      },
+      "description": "Triggers title change"
+    }
   }
 }
